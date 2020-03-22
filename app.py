@@ -35,8 +35,8 @@ def my_form():
 @app.route('/', methods=['POST', 'GET'])
 def my_form_post():
     age = request.form['age']
-    sex = request.form['Tax']
-    cp = request.form['Driver_Age']
+    sex = request.form['sex']
+    cp = request.form['cp']
     trestbps = request.form['trestbps']
     chol = request.form['chol']
     fbs = request.form['fbs']
