@@ -16,11 +16,11 @@ def get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, 
     mylist = [float(i) for i in mylist]
     vals = [mylist]
 
-    if req_model == 'Decision Tree':
+    if req_model == 'DecisionTree':
         #print(req_model)
         return decisiontree.predict(vals)[0]
 
-    elif req_model == 'Support Vector Machine':
+    elif req_model == 'SVM':
         #print(req_model)
         return svm.predict(vals)[0]
     else:
@@ -47,8 +47,8 @@ def my_form_post():
     slope = request.form['slope']
     ca = request.form['ca']
     thal = request.form['thal']
-
-    target = get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal)
+    req_model = request.form['req_model']
+    target = get_predictions(age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal, req_model)
 
     if target==1:
         heart = 'Heart Disease Positive'
